@@ -33,3 +33,20 @@
     <td class="table" *ngFor="let i of values3"><lista-simples [list]="i"></lista-simples></td>
   </tr>
 </table>
+
+<h2>Operator bufferWhen(() => Observable)) </h2>
+<strong>Cria um buffer do Observable usando uma "factory function" para fechar os observáveis para determinar quando fechar, emitindo e redefinindo o buffer.</strong>
+<table>
+  <tr>
+    <th class="table">Índice</th>
+    <th class="table" *ngFor="let item of values1; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table"><strong>Orginal</strong></td>
+    <td class="table" *ngFor="let i of valuesWhenOriginal">{{i}}</td>
+  </tr>
+  <tr>
+    <td class="table"><strong>Buffered</strong></td>
+    <td class="table" *ngFor="let i of valuesWhen"><lista-simples [list]="i"></lista-simples></td>
+  </tr>
+</table>

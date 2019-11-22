@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, of } from 'rxjs';
-import { take, map, buffer, bufferCount } from 'rxjs/operators';
+import { interval, of, fromEvent } from 'rxjs';
+import { take, map, buffer, bufferCount, bufferWhen } from 'rxjs/operators';
 
 @Component({
   selector: 'app-transformation',
@@ -13,10 +13,13 @@ export class TransformationComponent implements OnInit {
 
   values3: any[] = [];
 
+  valuesWhen: any[] = [];
+  valuesWhenOriginal: any[] = [];
+
   constructor() { }
 
   ngOnInit() {
-    const quandoEsteEmitir = interval(501).pipe(take(10), map(a => " valor: " + a));
+    const quandoEsteEmitir = interval(501).pipe(take(10), map(a => " JP: " + a));
     //BUFFER
     const buffered = quandoEsteEmitir.pipe(buffer(quandoEsteEmitir));
     
@@ -37,6 +40,24 @@ export class TransformationComponent implements OnInit {
       console.log('bufferedCount', a);
       this.values3.push(a);
     });
+
+
+    //BUFFER WHEN - emite acada 0,5 segundo
+    const emissor = interval(499).pipe(take(10), map(x => "João Pedro -" + x));
+    //fechar o buffer a cada 1 segundo
+    const closer = interval(1000);
+    const bufferedWhen = emissor.pipe(bufferWhen(() => closer));
+  
+    emissor.subscribe(a => {
+      console.log('buffedWhen Orginal: ', a);
+      this.valuesWhenOriginal.push(a);
+     });
+
+    bufferedWhen.subscribe(a => {
+       console.log('buffedWhen: ', a);
+       this.valuesWhen.push(a);
+    });
+
 
   }
 
