@@ -1,0 +1,102 @@
+<h1>Join Creation Operators</h1>
+<h2>Operator merge</h2>
+<strong>Cria um Observable com a lista de Observables informados emitindo as notificações a metida que recebe sem sequencialmento.</strong>
+<hr>
+<strong>Lista 1</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of mergedValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of values1">{{i}}</td>
+  </tr>
+</table>
+
+<strong>Lista 2</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of mergedValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of values2">{{i}}</td>
+  </tr>
+</table>
+
+<strong>Lista 3</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of mergedValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of values3">{{i}}</td>
+  </tr>
+</table>
+<hr>
+<strong>Lista Mergiada</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of mergedValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of mergedValues">{{i}}</td>
+  </tr>
+</table>
+
+<h2>Operator race</h2>
+<strong>Seleciona o Observable mais rápido da lista de Observables informados.</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of mergedValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of raceValues">{{i}}</td>
+  </tr>
+</table>
+
+<h2>Operator concat</h2>
+<strong>Criar um Observable de forma sequencial com as emissões dos Observables informados.</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of concatValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of concatValues">{{i}}</td>
+  </tr>
+</table>
+
+<h2>Operator combineLatest</h2>
+<strong>Combina multiplos Observables para criar um Observable com valor calculado com o último valor de cada entrada dos Observables informados.</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of combineLatestValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of combineLatestValues"><lista-simples [list]="i"></lista-simples></td>
+  </tr>
+</table>
+
+<h2>Operator forkJoin</h2>
+<strong>Combina multiplos Observables numa matriz dos ÚLTIMOS valores emitidos pelos Observáveis ​​passados ​​ou valor da função do projeto em um array de valores.</strong>
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of joinForkValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of joinForkValues"><lista-simples [list]="i"></lista-simples></td>
+  </tr>
+</table>
+
+
+<h2>Operator zip</h2>
+<strong>Combina multiplos Observables para criar um Observable que os valores são calculdados dos valores, em ordem, de cada valor emitidospelos Observáveis ​​passados.</strong>
+<br><strong>Observação:</strong> Até todos emitirem seus valores. Se um parar de emitir, o operador ZIP para de combinar.
+<table>
+  <tr>
+    <th class="table" *ngFor="let item of zipValues; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table" *ngFor="let i of zipValues">{{i|json}}</td>
+  </tr>
+</table>
+
+

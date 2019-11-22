@@ -1,0 +1,35 @@
+<h1>Transformation Operators</h1>
+
+<h2>Operator buffer</h2>
+<strong>Criar um Observable com a posição anterior do Observable informado.</strong>
+<table>
+  <tr>
+    <th class="table">Índice</th>
+    <th class="table" *ngFor="let item of values1; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table"><strong>Orginal</strong></td>
+    <td class="table" *ngFor="let i of values1">{{i}}</td>
+  </tr>
+  <tr>
+    <td class="table"><strong>Buffered</strong></td>
+    <td class="table" *ngFor="let i of values2">{{i}}</td>
+  </tr>
+</table>
+
+<h2>Operator bufferCount(buffer, reinicio) </h2>
+<strong>Criar um Observable com um array do tamanho do parâmetro "buffer" e reinicia o buffer a cada "reinício".</strong>
+<table>
+  <tr>
+    <th class="table">Índice</th>
+    <th class="table" *ngFor="let item of values1; let i = index">{{i}}</th>
+  </tr>
+  <tr>
+    <td class="table"><strong>Orginal</strong></td>
+    <td class="table" *ngFor="let i of values1">{{i}}</td>
+  </tr>
+  <tr>
+    <td class="table"><strong>Buffered</strong></td>
+    <td class="table" *ngFor="let i of values3"><lista-simples [list]="i"></lista-simples></td>
+  </tr>
+</table>
